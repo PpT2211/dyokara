@@ -1,0 +1,23 @@
+<div>
+	<h1>
+		<%=product.name%>
+	</h1>
+	<img src="<%=product.image%>" height=300>
+	<li>$<%=product.price%></li>
+</div>
+<br/>
+<br/>
+
+<% product.reviews.forEach(function(comment){%>
+	<p><strong><%= comment.author%></strong> - <%= comment.text%></p>
+<%})%>
+<a href="/<%= currentUser._id%>/<%=product._id%>/cart">Add to cart</a>
+<br/>
+
+<a href="/<%=product._id%>/checkout">Buy now</a>
+<br/>
+<a href="/products/<%=product._id%>/reviews/new">Review</a>
+<br/>
+<a href="/<%= currentUser._id%>/<%=product._id%>/wishlist">Wishlist</a>
+<br/>
+<a href="/products">Back</a>
